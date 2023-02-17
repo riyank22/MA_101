@@ -16,10 +16,19 @@ int main(void)
     {
         for(j=0;j<n;j++)
         {
-            *(p+i*n+j)='*';
+            *(p+i*n+j)=' ';
         }
     }
+    
 
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%c ",*(p+i*n+j));
+        }
+        printf("\n");
+    }
 
     printf("Enter Coords:");
     scanf("%d %d", &x, &y);
@@ -50,7 +59,7 @@ void gameon()
 
 void array_manipulator()
 {
-    for(i=y-1;i<m&&*(p+n*(i+1)+j)!='_';i++)
+    for(i=y-1;i<m && *(p+n*(i+1)+j)!='_';i++)
     {
         for(j=x-1;j<n&&*(p+n*i+j+1)!='_';j++)
         {
