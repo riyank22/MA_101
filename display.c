@@ -1,23 +1,23 @@
-void print_display(int m, int n, int *board, int *chomped_blocks, int num_chomped_blocks) {
+void display()
+{
     printf("\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            int chomped = 0;
-            for (int k = 0; k < num_chomped_blocks; k++) {
-                if (*(chomped_blocks + 2*k) == i && *(chomped_blocks + 2*k + 1) == j) {
-                    chomped = 1;
-                    break;
-                }
-            }
-            if (chomped) {
-                printf("   ");
-            } else if (*(board + i*n + j) == 0) {
-                printf(" * ");
-            } else {
-                printf(" o ");
-            }
+
+    // Print the column numbers
+    printf("   ");
+    for (int j = 0; j < n; j++)
+    {
+        printf("%d ", j+1);
+    }
+    printf("\n");
+
+    // Print the rows
+    for (int i = 0; i < m; i++)
+    {
+        printf("%2d", i+1);
+        for (int j = 0; j < n; j++)
+        {
+            printf(" %c", *(p+i*n+j));
         }
         printf("\n");
     }
-    printf("\n");
 }
