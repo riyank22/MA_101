@@ -1,27 +1,31 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int m,n,i,j,x,y;;
-char *p;
-void array_manipulator();
-void gameon();
+int m,n,i,j,x,y; //m,n board dimensions i,j for indexing, x,y user input 
+char *p; //pointer
+void array_manipulator(); //for clearing boxes
+void gameon(); //game event handler
+
 bool player=0;
 
 int main(void)
 {   printf("Enter dimensions: ");
     scanf("%d %d", &m, &n);
+
     char arr[m][n];
+
     p=&arr[0][0];
-    for(i=0;i<m;i++)
+
+    for(i=0;i<m;i++) //assigning array the default look
     {
         for(j=0;j<n;j++)
         {
-            *(p+i*n+j)=' ';
+            *(p+i*n+j)='*';
         }
     }
     
 
-    for(i=0;i<m;i++)
+    for(i=0;i<m;i++) //displaying
     {
         for(j=0;j<n;j++)
         {
@@ -31,9 +35,9 @@ int main(void)
     }
 
     printf("Enter Coords:");
-    scanf("%d %d", &x, &y);
+    scanf("%d %d", &x, &y); //taking input
 
-    array_manipulator(x,y);
+    array_manipulator(x,y); //calling for clearing the boxes
 
     for(i=0;i<m;i++)
     {
@@ -42,7 +46,7 @@ int main(void)
             printf("%c ",*(p+i*n+j));
         }
         printf("\n");
-    }
+    } //printing the result
 
     /*while(*(p+1)=="_"&&*(p+n+1)=='_')
     {
