@@ -1,91 +1,36 @@
-#include<stdio.h>
-void system();
-int n;
-void glob()
+void input()
 {
-    printf("Enter the size of grid\n");
-    scanf("%d",&n);
+    printf("Enter the row and column number of the chocolate you want to eat\n");
+    scanf("%d %d",&x, &y);
 }
-char a[40][40];
-void inp()
+
+void check()
 {
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n;j++)
+    label:
+    input();
+
+    x--;
+    y--;
+
+        if(x>m || y>n || x<0 || y<0)
         {
-           a[i][j]='X';
+            printf("You have given an invalid input\n");
+            printf("Please give a valid input\n");
+            goto label;
         }
-    }
-}
-void print()
-{
-    system("cls");
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n;j++)
-        {
-            printf("   %c   ",a[i][j]);
-        }
-        printf("\n\n\n");
-    }
-}
-int check()
-{
-    if(a[0][1]=='_'&&a[1][0]=='_'&&a[1][1]=='_')
-    {
-        return 1;
-    }
-    return -1;
-}
-int main()
-{
-    glob();
-    inp();
-    print();
-    int player=1;   
-    while(1)
-    {
-        if(player%2==0)
-        {
-            player=2;
-        }
-        else
-        {
-            player=1;
-        }
-        printf("Player %d please enter the row number and column number of the chocolate you want to eat\n",player);
-        int i,j;
-        label:
-        scanf("%d%d",&i,&j);
-        i=i-1;
-        j=j-1;
-        if(i==0 && j==0)
+        if(x==0 && y==0)
         {
             printf("You can not select the poisoned chocolate\n");
             printf("Please Select other value\n");
             goto label;
         }
-        if(a[i][j]=='_')
+        if(*(p+(x)+n*(y))=='_')
         {
+            printf("\n\n%c\n\n", *(p+x+n*y));
             printf("That chocolate has already been selected\n");
             printf("Please Select other value\n");
             goto label;
         }
-        for(int k=i;k<n;k++)
-        {
-            for(int l=j;l<n;l++)
-            {
-                a[k][l]='_';
-            }
-        }
-        print();
-        int c=check();
-        if(c==1)
-        {
-            printf("Player %d is the winner\n",player);
-            break;
-        }
-        player++;
-    }
-    return(0);
+
+    array_manipulator(); //calling for clearing the boxes
 }
