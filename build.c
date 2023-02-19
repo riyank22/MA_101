@@ -25,11 +25,11 @@ int main(void)
     {
         for(j=0;j<n;j++)
         {
-            *(p+i*n+j)='*';
+            *(p+i*n+j)=219;
         }
     }
 
-    system("clear");
+    system("cls");
 
     gameon();
 
@@ -47,7 +47,7 @@ void gameon()
         display();
         player=turn();
         check();
-        system("clear");
+        system("cls");
     }
 }
 
@@ -68,7 +68,7 @@ bool turn()
 
 void input()
 {
-    printf("\nEnter the coordinates of the chocolate square you want to eat(r,c): ");
+    printf("\nEnter the coordinates of the chocolate square you want to eat (r,c): ");
     scanf("%d %d",&x, &y);
 }
 
