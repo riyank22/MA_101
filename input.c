@@ -9,7 +9,6 @@ void glob()
 char a[40][40];
 void inp()
 {
-
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<n;j++)
@@ -20,7 +19,7 @@ void inp()
 }
 void print()
 {
-    system("clear");
+    system("cls");
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<n;j++)
@@ -88,5 +87,5 @@ int main()
         }
         player++;
     }
-    return 0;
+    return(0);
 }
