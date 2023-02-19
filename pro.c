@@ -20,18 +20,8 @@ int main(void)
     {
         for(j=0;j<n;j++)
         {
-            *(p+i*n+j)='*';
+            *(p+i*n+j)=219;
         }
-    }
-    
-
-    for(i=0;i<m;i++) //displaying
-    {
-        for(j=0;j<n;j++)
-        {
-            printf("%c ",*(p+i*n+j));
-        }
-        printf("\n");
     }
 
     printf("Enter Coords:");
@@ -56,16 +46,17 @@ int main(void)
 
 void gameon()
 {
-    //input();
-    //array_manipulator();
-    //display();
+    while(*(p))
+    display();
+    input();
+    array_manipulator();
 }
 
 void array_manipulator()
 {
     for(i=y-1;i<m && *(p+n*(i+1)+j)!='_';i++)
     {
-        for(j=x-1;j<n&&*(p+n*i+j+1)!='_';j++)
+        for(j=x-1;j<n && *(p+n*i+j+1)!='_';j++)
         {
             *(p+i*n+j)='_';
         }
